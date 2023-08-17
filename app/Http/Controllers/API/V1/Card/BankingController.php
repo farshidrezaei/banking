@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\V1\Card;
 use App\Events\CardToCardDoneEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CardToCardRequest;
+use App\Http\Resources\TopUserResource;
 use App\Http\Resources\TransactionResource;
 use App\Models\Card;
 use App\Services\BankingService;
@@ -40,5 +41,10 @@ class BankingController extends Controller
         ]);
     }
 
-
+    public function getTopUsers(): JsonResponse
+    {
+        return new  JsonResponse([
+            'top_users' => TopUserResource::collection(BankingService::getTopUsers())
+        ]);
+    }
 }
