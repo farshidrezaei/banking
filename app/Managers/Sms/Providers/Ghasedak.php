@@ -15,7 +15,7 @@ class Ghasedak extends AbstractSmsProvider
      */
     public function send(string $mobile, string $message): void
     {
-        $response = Http::asForm()->baseUrl(config('services.sms_providers.ghasedak.base_url'))
+         Http::asForm()->baseUrl(config('services.sms_providers.ghasedak.base_url'))
             ->withHeader('apikey', config('services.sms_providers.ghasedak.api_key'))
             ->post(
                 'sms/send/simple?'.http_build_query([

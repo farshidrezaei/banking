@@ -14,6 +14,6 @@ class SmsChannel
      */
     public function send(User $notifiable, CardToCardIncreaseBalanceNotification $notification): void
     {
-        Sms::send($notifiable->routeNotificationForSms(), $notification->toSms());
+        Sms::sendSms($notifiable->routeNotificationForSms(), $notification->toSms());
     }
 }
