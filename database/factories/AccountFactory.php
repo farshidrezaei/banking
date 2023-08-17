@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends Factory<User>
  */
-class UserFactory extends Factory
+class AccountFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,8 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
-            'mobile' => $this->faker->numerify('09#########')
+            'user_id' => User::factory(),
+            'number' => $this->faker->unique()->numerify('############')
         ];
     }
 }
