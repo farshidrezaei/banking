@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->name('v1.')->group(function () {
     Route::prefix('banking')->name('banking.')->controller(BankingController::class)->group(function () {
         Route::post('card-to-card', 'cardToCard')->name('card-to-card');
+        Route::get('top-users', 'getTopUsers')->name('top-users');
     });
 });
