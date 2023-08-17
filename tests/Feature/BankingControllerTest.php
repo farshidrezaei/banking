@@ -206,4 +206,26 @@ class BankingControllerTest extends TestCase
         Notification::assertCount(0);
     }
 
+
+    public function testTopUserWorkSuccessfully(): void
+    {
+        $this->seed();
+
+        $response = $this->getJson(route('v1.banking.top-users'));
+
+        $response->assertSuccessful();
+
+        $response->assertJson(
+            fn(AssertableJson $json) => $json
+                ->has('top_users.0.last_transactions.0.card_number')
+                ->has('top_users.0.name')
+                ->etc()
+        );
+
+        $this->assertGreaterThanOrEqual(
+            $response->json('top_users.1.transactions_count'),
+            $response->json('top_users.0.transactions_count')
+        );
+    }
+
 }
