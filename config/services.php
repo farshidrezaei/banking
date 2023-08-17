@@ -31,4 +31,15 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'sms_providers' => [
+        'kavehnegar' => [
+            'base_url' => env('KAVEHNEGAR_BASE_URL'),
+            'api_key' => env('KAVEHNEGAR_API_KEY')
+        ],
+        'ghasedak' => [
+            'base_url' => env('GHASEDAK_BASE_URL'),
+            'api_key' => env('GHASEDAK_API_KEY')
+        ]
+    ]
+
 ];
