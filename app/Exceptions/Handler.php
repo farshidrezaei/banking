@@ -18,6 +18,11 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
+
+    protected $dontReport = [
+        BalanceIsInsufficientException::class
+    ];
+
     /**
      * Register the exception handling callbacks for the application.
      */
