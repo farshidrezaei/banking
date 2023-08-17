@@ -42,6 +42,9 @@ docker exec -it banking-php php /var/www/html/artisan migrate
 ```
 
 
-
+## Test
+```bash
+docker exec -it banking-php php /var/www/html/artisan test
+```
 
 
