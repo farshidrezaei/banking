@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\API\V1\Card\BankingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v1')->name('v1.')->group(function () {
+    Route::prefix('banking')->name('banking.')->controller(BankingController::class)->group(function () {
+        Route::post('card-to-card', 'cardToCard')->name('card-to-card');
+    });
 });
