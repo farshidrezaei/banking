@@ -14,7 +14,7 @@ class Kavehnegar extends AbstractSmsProvider
      */
     public function send(string $mobile, string $message): void
     {
-        $response = Http::baseUrl(
+        Http::baseUrl(
             config('services.sms_providers.kavenegar.base_url')."/".config(
                 'services.sms_providers.kavenegar.api_key'
             )
@@ -24,7 +24,5 @@ class Kavehnegar extends AbstractSmsProvider
                 'message' => $message
             ])
             ->throw();
-
-        $this->storeLog($mobile, $message);
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @method static SmsProviderManager driver(string $driver);
  * @method static SmsProviderManager extend(string $driver, Closure $callback);
- * @method static void send(string $number, string $message);
+ * @method static void sendSms(string $number, string $message);
  */
 class Sms extends Facade
 {
