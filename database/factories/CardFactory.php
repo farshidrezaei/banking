@@ -21,10 +21,10 @@ class CardFactory extends Factory
     {
         return [
             'account_id' => Account::factory(),
-            'number' => $this->faker->unique()->creditCardNumber,
+            'number' => $this->faker->unique()->creditCardNumber('Visa'),
             'cvv2' => $this->faker->numerify(),
             'expires_at' => now()->addYears(5),
-            'password' => Hash::make('password'),
+            'password' => Hash::make('1223'),
         ];
     }
 }

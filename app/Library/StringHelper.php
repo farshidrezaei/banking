@@ -30,4 +30,23 @@ class StringHelper
             $length ?? strlen($string) - $start
         );
     }
+
+    public static function checkCardNumber(mixed $value): bool
+    {
+        if (!preg_match('/^\d{16}$/', $value)) {
+            return false;
+        }
+
+        $sum = 0;
+
+        for ($position = 1; $position <= 16; $position++) {
+            $temp = $value[$position - 1];
+            $temp = $position % 2 === 0 ? $temp : $temp * 2;
+            $temp = $temp > 9 ? $temp - 9 : $temp;
+
+            $sum += $temp;
+        }
+
+        return ($sum % 10 === 0);
+    }
 }
